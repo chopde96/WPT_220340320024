@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(()=>{
+            $("#b1").click(()=>{
+                console.log("");
+                let send1={bookid:$("#t1").val(),bookname:$("#t2").val(),price:$("#t3").val()};
+                let parameterstothefunction={
+                    data:send1,
+                    url: "http://localhost:350/register",
+                    type:'get',
+                    datatype:"json",
+                    success:(datagivenby server in succes"+datagivenbyserver.status)
+                    if(datagivenbyserver.status)===true){
+                        $("#message").text("data added successfully");
+                    }
+                    else
+                    {
+                        $("message").text("incorrect details");
+                    }
+                },
+                error:(errorgivenbyserver)=>{ console.log("fialed to contact servr"+errorgivenbyserver)};
+                $.ajax(parametertothefunction)
+            })
+        })
+    </script>
+    <script>
+         $(()=>{
+            $(#update).click(()=>{
+                let input={
+                    bookid:$("bookid").val(),
+                    bookname:$("bookname").val(),
+                    bookprice:$("bookid").val(),
+
+                };
+                let object1={
+                    data:input,
+                    url:"https://localhost:8081/updatedetails"
+                    type:"get",
+                    datatype:"json",
+                    success:(responsefromserver)=>{
+                        if(responsefromserver.status){
+                            $("#contents").html("update Sucessful");
+                        }
+                    },
+                    error:(errorframeserver)=>{
+                        console.log(update unsuccessful please try agian);
+                    },
+
+                };
+                $.ajax(object1);
+            });
+        });
+    </script>
+
+
+
+</head>
+<body>
+   <input type="text" id="t1" placeholder="book id">
+   <hr>
+   <input type="text" id="t2" placeholder="book name">
+   <hr>
+   <input type="text" id="t3" placeholder="price">
+   <hr>
+   <input type="button" id="b1" value="update">
+   <hr>
+
+
+</body>
+</html>
